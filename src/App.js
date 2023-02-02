@@ -7,45 +7,45 @@ const styles = {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    margin: "50px"
+    margin: "50px",
   },
   input: {
     height: "30px",
     width: "400px",
     fontSize: "20px",
     padding: "10px",
-    marginBottom: "20px"
+    marginBottom: "20px",
   },
   button: {
     height: "50px",
     width: "200px",
     fontSize: "20px",
-    margin: "20px"
+    margin: "20px",
   },
   image: {
     height: "400px",
     width: "400px",
-    margin: "20px"
+    margin: "20px",
   },
   result: {
     fontSize: "30px",
-    margin: "20px"
+    margin: "20px",
   },
   "@media (max-width: 767px)": {
     container: {
-      margin: "20px"
+      margin: "20px",
     },
     input: {
-      width: "200px"
+      width: "200px",
     },
     button: {
-      width: "100px"
+      width: "100px",
     },
     image: {
       height: "200px",
-      width: "200px"
-    }
-  }
+      width: "200px",
+    },
+  },
 };
 
 const ImageGame = () => {
@@ -61,13 +61,13 @@ const ImageGame = () => {
         "https://api.openai.com/v1/images/generations",
         {
           prompt: prompt,
-          size: "512x512"
+          size: "512x512",
         },
         {
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${process.env.REACT_APP_OPENAI_KEY}`
-          }
+            Authorization: `Bearer ${process.env.REACT_APP_OPENAI_KEY}`,
+          },
         }
       );
       setImageUrl(response.data.data[0].url);
@@ -76,8 +76,8 @@ const ImageGame = () => {
         `https://api.pexels.com/v1/search?query=${prompt}&per_page=1&page=1`,
         {
           headers: {
-            Authorization: `Bearer ${process.env.REACT_APP_PEXELS_KEY}`
-          }
+            Authorization: `Bearer ${process.env.REACT_APP_PEXELS_KEY}`,
+          },
         }
       );
       setImageUrl(response.data.photos[0].src.original);
